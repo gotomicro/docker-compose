@@ -1,0 +1,18 @@
+version: '3'
+services:
+  clickhouse:
+    image: clickhouse/clickhouse-server:21.3.20
+    environment:
+      CLICKHOUSE_USER: gotomicro
+      CLICKHOUSE_PASSWORD: clickhouse
+    expose:
+      - 9000
+    ports:
+      - "8123:8123"
+      - "9000:9000"
+    volumes:
+      - ./data/database:/var/lib/clickhouse
+      - ./data/logs:/var/log
+      - ./config/users.xml:/etc/clickhouse-server/users.xml
+      - ./config/conf.d:/etc/clickhouse-server/conf.d
+

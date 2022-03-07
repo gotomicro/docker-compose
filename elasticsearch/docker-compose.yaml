@@ -8,10 +8,10 @@ services:
       ELASTIC_PASSWORD: gotomicro@elastic
       ES_JAVA_OPTS: "-Xms512m -Xmx512m"
     volumes:
-      - ./data:/usr/share/elasticsearch/data
-      - ./plugins:/usr/share/elasticsearch/plugins
+      - ./data/database:/usr/share/elasticsearch/data
+      - ./data/plugins:/usr/share/elasticsearch/plugins
       - ./config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
-      - ./logs:/user/share/elasticsearch/logs
+      - ./data/logs:/user/share/elasticsearch/logs
     ports:
       - '9200:9200'
       - '9300:9300'
