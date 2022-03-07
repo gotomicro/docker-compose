@@ -1,0 +1,8 @@
+version: '3'
+services:
+  kowl:
+    image: rsmnarts/kowl
+    environment:
+      KAFKA_BROKERS: ${DOCKER_HOST_IP:-127.0.0.1}:9092
+    ports:
+      - 29001:8080
