@@ -6,8 +6,8 @@ services:
     ports:
       - 2181:2181
     volumes:
-      - ./data/zookeeper/data:/data
-      - ./data/zookeeper/datalog:/datalog
+      - ./data/zookeeper/database:/data
+      - ./data/zookeeper/logs:/datalog
     environment:
       - ALLOW_ANONYMOUS_LOGIN=yes
   kafka:

@@ -1,0 +1,17 @@
+version: '3'
+services:
+  redis:
+    image: redis:5.0.14-alpine
+    container_name: docker_redis
+    volumes:
+      - ./data/database:/data
+      - ./config/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./data/logs:/logs
+    command:
+      redis-server /usr/local/etc/redis/redis.conf --requirepass gotomicro.redis
+    # docker-proxy暴露16379端口
+    expose:
+      - "16379"
+    ports:
+      # 绑定容器的6379端口到主机的16379端口
+      - 16379:6379
