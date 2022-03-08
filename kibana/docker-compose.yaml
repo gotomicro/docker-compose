@@ -1,0 +1,16 @@
+version: '3'
+services:
+  kibana:
+    image: kibana:7.17.1
+    volumes:
+      - ./config/kibana.yml:/usr/share/kibana/config/kibana.yml:ro,Z
+    ports:
+      - "5601:5601"
+    environment:
+#      ELASTICSEARCH_URL: http://elasticsearch:9200/
+      KIBANA_SYSTEM_PASSWORD: 123456
+    networks:
+      - elasticsearch_net
+networks:
+  elasticsearch_net:
+    external: true

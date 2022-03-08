@@ -2,10 +2,10 @@ version: '3'
 services:
   elasticsearch:
     image: elasticsearch:8.0.1
-    container_name: es-single
+    container_name: elasticsearch
     environment:
       discovery.type: single-node
-      ELASTIC_PASSWORD: gotomicro@elastic
+#      ELASTIC_PASSWORD: gotomicro
       ES_JAVA_OPTS: "-Xms512m -Xmx512m"
     volumes:
       - ./data/database:/usr/share/elasticsearch/data
@@ -15,3 +15,8 @@ services:
     ports:
       - '9200:9200'
       - '9300:9300'
+    networks:
+      - net
+networks:
+  net:
+    driver: bridge
