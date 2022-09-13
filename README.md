@@ -12,3 +12,7 @@ docker-compose redis、mysql、elasticsearch、kafka、clickhouse
 
 
 https://blog.csdn.net/weixin_30306905/article/details/96993216
+
+### Infrastructure model
+
+![Infrastructure model](.infragenie/infrastructure_model.png)
